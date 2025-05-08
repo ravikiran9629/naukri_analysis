@@ -30,7 +30,7 @@ location_options = [
 Location = st.selectbox("Select your location:", location_options)
 
 # Rating input
-Ratings = st.number_input('Your rating (out of 5)', min_value=0.0, max_value=5.0, value=3.0,step 1.0)
+Ratings = st.number_input('Your rating (out of 5)', min_value=0.0, max_value=5.0, value=3.0,step = 1.0)
 
 
 # Company input
