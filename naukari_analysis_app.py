@@ -7,7 +7,8 @@ from sklearn.preprocessing import LabelEncoder
 
 # Load the trained XGBoost model
 randomtree = joblib.load('naukri_analysis.pkl')
-
+encoder_loc = joblib.load('le_location.pkl')
+encoder_comp = joblib.load('le_company.pkl')
 # Title and Description
 st.title('Naukri Job Analysis')
 st.write('Enter your skills, experience, location, rating, and company to predict your best job match!')
@@ -30,7 +31,7 @@ location_options = [
 Location = st.selectbox("Select your location:", location_options)
 
 # Rating input
-Ratings = st.number_input('Your rating (out of 5)', min_value=0.0, max_value=5.0, value=3.0)
+Ratings = st.number_input('Your rating (out of 5)', min_value=0.0, max_value=5.0, value=3.0,step 1.0)
 
 
 # Company input
@@ -46,34 +47,18 @@ Company = st.selectbox('Select your company:', company_options)
 
 if st.button('Predict'):
     # Prepare the features for prediction
-    # label encode the categorical variables (Skills, Location, Company)
-    encoder = LabelEncoder()
-
+    
     # Encode Location
-    encoder_loc = LabelEncoder()
-    encoder_loc.fit(location_options)
-    location_encoded = encoder_loc.transform([Location])[0]
+    Location_enc = encoder_loc.transform([Location])[0]
 
 # Encode Company
-    encoder_comp = LabelEncoder()
-    encoder_comp.fit(company_options)
-    company_encoded = encoder_comp.transform([Company])[0]
+    Company_enc = encoder_comp.transform([Company])[0]
 
 
 # Combine all features into a single array for prediction
-    features = np.array([[Experience_Avg, Reviews, Ratings, company_encoded, location_encoded]])
+    features = np.array([[Experience_Avg, Reviews, Ratings, Company_enc, Location_enc]])
 
-
-
-
-    
-    
-    
-   
-    
-    # Combine all features into a single array for prediction
-   # features = np.array([['Experience_Avg', 'Reviews', 'Ratings', 'Company_encoded', 'Location_encoded']])
-    
+ 
     # Make prediction
     prediction = randomtree.predict(features)
     st.success(f'The best job match for you is: {prediction[0]}')
@@ -93,6 +78,3 @@ if st.button("Show Predictions Plot"):
     else:
         st.warning("Please make a prediction first by clicking the 'Predict' button")
 
-"""
-with open('apps.py', 'w') as f:
-    f.write(streamlit_code)
