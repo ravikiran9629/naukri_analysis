@@ -26,8 +26,7 @@ location_options = [
     'Mumbai ','Mumbai (All Areas)','Mumbai (All Areas), Hyderabad/Secunderabad, Pune, Chennai, Delhi / NCR, Bangalore/Bengaluru', 'Hyderabad/Secunderabad, Pune, Chennai, Delhi / NCR, Bangalore/Bengaluru', 'Hyderabad/Secunderabad', 'Pune', 'Chennai', 'Delhi / NCR', 
     'Bangalore/Bengaluru', 'Chennai(Teynampet)', 'Chennai(Kodambakkam)','Mumbai, Gurgaon/Gurugram, Aurangabad, Vadodara',
     'Pune, Hyderabad/Secunderabad, Chennai, Delhi / NCR, Bangalore/Bengaluru, Mumbai (All Areas)','Pune','Chennai, Hyderabad/Secunderabad, Pune, Delhi / NCR, Bangalore/Bengaluru, Mumbai (All Areas)',
-    'Chennai(Ekkaduthangal)','Chennai(Kodambakkam), 'Kodambakkam'
-]
+    'Chennai(Ekkaduthangal)','Chennai(Kodambakkam), 'Kodambakkam']
 Location = st.selectbox("Select your location:", location_options)
 
 # Rating input
