@@ -30,11 +30,15 @@ experience_maximum = st.number_input('Maximum experience:', min_value=0, max_val
 Experience_Avg = (experience_minimum + experience_maximum) / 2.0
 
 # Location input
-location_options = [
-    'Mumbai ','Mumbai (All Areas)','Mumbai (All Areas), Hyderabad/Secunderabad, Pune, Chennai, Delhi / NCR, Bangalore/Bengaluru', 'Hyderabad/Secunderabad, Pune, Chennai, Delhi / NCR, Bangalore/Bengaluru', 'Hyderabad/Secunderabad', 'Pune', 'Chennai', 'Delhi / NCR', 
-    'Bangalore/Bengaluru', 'Chennai(Teynampet)', 'Chennai(Kodambakkam)','Mumbai, Gurgaon/Gurugram, Aurangabad, Vadodara',
-    'Pune, Hyderabad/Secunderabad, Chennai, Delhi / NCR, Bangalore/Bengaluru, Mumbai (All Areas)','Pune','Chennai, Hyderabad/Secunderabad, Pune, Delhi / NCR, Bangalore/Bengaluru, Mumbai (All Areas)',
-    'Chennai(Ekkaduthangal)','Chennai(Kodambakkam), Kodambakkam']
+location_options = ['Mumbai',
+       'Mumbai (All Areas), Hyderabad/Secunderabad, Pune, Chennai, Delhi / NCR, Bangalore/Bengaluru',
+       'Mumbai, Gurgaon/Gurugram, Aurangabad, Vadodara',
+       'Mumbai (All Areas)',
+       'Pune, Hyderabad/Secunderabad, Chennai, Delhi / NCR, Bangalore/Bengaluru, Mumbai (All Areas)',
+       'Pune',
+       'Chennai, Hyderabad/Secunderabad, Pune, Delhi / NCR, Bangalore/Bengaluru, Mumbai (All Areas)',
+       'Chennai', 'Chennai(Ekkaduthangal)',
+       'Chennai(Kodambakkam), Kodambakkam']
 Location = st.selectbox("Select your location:", location_options)
 
 # Rating input
@@ -42,14 +46,14 @@ Ratings = st.number_input('Your rating (out of 5)', min_value=0.0, max_value=5.0
 
 
 # Company input
-company_options = [
-    'Accenture', 'Oracle', 'Siemens', 'BNY Mellon', 'CoinDCX', 'Rave Technologies', 
-    'HealthSpring', 'Citibank, N.A', 'Snaphunt', 'Duff & Phelps', 'Credit Suisse', 
-    'Prodair Air Products', 'Ubisoft', 'CompuCom', 'Kraftmaid Services India', 
-    'Method Studios', 'Company3 Method India Private Limited', 'Eversendai', 'Shell', 
-    'NatWest Group', 'Sona Comstar', 'RRD', 'Thinksynq Solutions', 'Icon Clinical Research', 
-    'Aspire Systems'
-]
+company_options = ['Accenture', 'CoinDCX', 'Oracle', 'Siemens', 'Rave Technologies',
+       'HealthSpring', 'Citibank, N.A', 'Snaphunt', 'Duff & Phelps',
+       'Prodair Air Products', 'Air Products', 'CompuCom',
+       'Method Studios', 'Company3 Method India Private Limited',
+       'Thinksynq Solutions', 'Shell', 'Icon Clinical Research',
+       'Aspire Systems', 'Icon Pharmaceutical s',
+       'Associated Auto Solutions International Pvt. Ltd.',
+       'Sona Comstar', 'NatWest Group', 'Eversendai']
 Company = st.selectbox('Select your company:', company_options)
 
 if st.button('Predict'):
