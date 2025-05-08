@@ -1,14 +1,23 @@
 import streamlit as st
-import joblib
+import pickle
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 
+# Load LabelEncoders using pickle
+with open('le_company.pkl', 'rb') as f:
+    le_company = pickle.load(f)
+
+with open('le_location.pkl', 'rb') as f:
+    le_location = pickle.load(f)
+
+with open('randomtree.pkl', 'rb') as f:
+    randomtree = pickle.load(f)
 # Load the trained XGBoost model
-randomtree = joblib.load('naukri_analysis.pkl')
-encoder_loc = joblib.load('le_location.pkl')
-encoder_comp = joblib.load('le_company.pkl')
+#randomtree = joblib.load('naukri_analysis.pkl')
+#encoder_loc = joblib.load('le_location.pkl')
+#encoder_comp = joblib.load('le_company.pkl')
 # Title and Description
 st.title('Naukri Job Analysis')
 st.write('Enter your skills, experience, location, rating, and company to predict your best job match!')
