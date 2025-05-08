@@ -13,6 +13,9 @@ with open('le_location.pkl', 'rb') as f:
 
 with open('randomtree.pkl', 'rb') as f:
     randomtree = pickle.load(f)
+    
+with open('le_title.pkl', 'rb') as f:
+    le_title = pickle.load(f)
 # Load the trained XGBoost model
 #randomtree = joblib.load('naukri_analysis.pkl')
 #encoder_loc = joblib.load('le_location.pkl')
@@ -72,7 +75,8 @@ if st.button('Predict'):
  
     # Make prediction
     prediction = randomtree.predict(features)
-    st.success(f'The best job match for you is: {prediction[0]}')
+    title = le_title.transform(prediction[0])
+    st.success(f'The best job match for you is: {title}')
 
     # Store prediction for plotting if needed
     st.session_state.prediction = prediction
