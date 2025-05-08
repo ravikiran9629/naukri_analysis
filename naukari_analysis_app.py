@@ -56,10 +56,10 @@ if st.button('Predict'):
     # Prepare the features for prediction
     
     # Encode Location
-    Location_enc = encoder_loc.transform([Location])[0]
+    Location_enc = le_location.transform([Location])[0]
 
 # Encode Company
-    Company_enc = encoder_comp.transform([Company])[0]
+    Company_enc = le_company.transform([Company])[0]
 
 
 # Combine all features into a single array for prediction
