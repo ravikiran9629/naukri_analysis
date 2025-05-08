@@ -75,7 +75,12 @@ if st.button('Predict'):
  
     # Make prediction
     prediction = randomtree.predict(features)
-    title = le_title.transform(prediction[0])
+    # Get the first prediction (assuming single sample prediction)
+    predicted_class = prediction[0]  
+
+# Transform the predicted class index back to original label
+# Note: Use inverse_transform, not transform!
+    title = le_title.inverse_transform([predicted_class])[0] 
     st.success(f'The best job match for you is: {title}')
 
     # Store prediction for plotting if needed
