@@ -3,7 +3,6 @@ import pickle
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import LabelEncoder
 
 # Load LabelEncoders using pickle
 with open('le_company.pkl', 'rb') as f:
